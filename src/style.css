@@ -1,0 +1,148 @@
+@import url(https://use.fontawesome.com/releases/v6.0.0/css/all.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f2f5;
+}
+
+.todo-container {
+  width: 40%;
+  min-height: 60vh;
+  margin: 10vh 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-list-group {
+  width: 100%;
+}
+
+.todo-list {
+  height: 50px;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #ddd solid;
+}
+
+.todo-intro {
+  font-size: 15px;
+}
+
+.todo-intro-title {
+  font-weight: 600;
+  opacity: 0.9;
+  color: #545862;
+}
+
+.todo-intro i {
+  font-size: 17px;
+  opacity: 0.5;
+  color: #333;
+}
+
+.todo-add * {
+  color: #ddd;
+}
+
+.todo-add input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.todo-add input::placeholder {
+  color: #ddd;
+}
+
+.todo-add i {
+  font-size: 12px;
+}
+
+.unchecked-button,
+.checked-button {
+  outline: none;
+  border: none;
+}
+
+.unchecked-button {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 2px #ddd solid;
+  cursor: pointer;
+  color: #fff;
+}
+
+.checked-button {
+  background-color: transparent;
+  color: #2e8ae6;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.todo-item input {
+  width: calc(100% - 30px);
+  padding: 0 15px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 100;
+  text-align: start;
+}
+
+.undecoration {
+  color: #000;
+  text-decoration: none;
+}
+
+.decoration {
+  opacity: 0.5;
+  color: #333;
+  text-decoration: line-through;
+}
+
+.todo-item-more {
+  font-size: 17px;
+  opacity: 0.5;
+  color: #333;
+  cursor: pointer;
+}
+
+.clear-todo {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  border: none;
+  background-color: #f1f2f5;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clear-todo span {
+  opacity: 0.5;
+  color: #333;
+}
