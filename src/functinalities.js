@@ -25,6 +25,7 @@ const addmylist = (event) => {
       completed: false,
       index: mylist.length + 1,
     };
+    newTask.value ='';
     mylist = [...mylist, todoElement];
     localStorage.setItem('mylist', JSON.stringify(mylist));
     getmylist();
@@ -34,7 +35,7 @@ const addmylist = (event) => {
 const editmylist = ({ index, event }) => {
   if (event.target.value === '') return;
   if (event.key === 'Enter') {
-    mylist[index].description = event.target.value;
+    mylist[index -1].description = event.target.value;
     localStorage.setItem('mylist', JSON.stringify(mylist));
   }
 };
