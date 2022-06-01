@@ -1,57 +1,48 @@
 // import _ from 'lodash';
 import './style.css';
+import {
+  getmylist, addmylist, editmylist, deletemylist,
+} from './functinalities.js';
 
-const mylist = [
-  {
-    description: 'house chores',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'side project',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'today projects',
-    completed: true,
-    index: 3,
-  },
-  {
-    description: '4hackerranck challenges',
-    completed: false,
-    index: 4,
-  },
-];
+const listGroup = document.querySelector('.todo-group');
+const newTask = document.querySelector('.todo-add').querySelector('input');
+const submitIcon = document.querySelector('.todo-add').querySelector('i');
+newTask.addEventListener('keypress', (event) => addmylist(event));
+submitIcon.addEventListener('click', () => addmylist('clicked'));
 
-const getmylist = () => {
-  const listGroup = document.querySelector('.todo-group');
-  mylist.map((item) => {
-    const listElement = document.createElement('li');
-    listElement.classList = 'todo-list todo-item';
-    listElement.id = `${item.index}`;
-    listElement.innerHTML = `
-        <button type="button" class=${
-  item.completed === true ? 'checked-button' : 'unchecked-button'
-}>
-        <i class="fa-solid fa-check"></i></button>
-        <input type="text" class=${
-  item.completed === true ? 'decoration' : 'undecoration'
-}  value="${item.description}">
-        <span class="todo-item-more"><i class="fa-solid fa-ellipsis-vertical"></i></span>
-    `;
-    return listGroup.appendChild(listElement);
-  });
-};
-window.addEventListener('load', getmylist);
+listGroup.addEventListener('click', (event) => {
+  const clickedItem = event.target.classList[event.target.classList.length - 1];
+  const li = event.target.parentElement;
+  if (clickedItem === 'delete-icon') deletemylist(li.id);
+});
 
-// function component() {
-//   const element = document.createElement('div');
+listGroup.addEventListener('keypress', (event) => {
+  const pressedItem = event.target.classList[event.target.classList.length - 1];
+  const li = event.target.parentElement;
+  if (pressedItem === 'edit-todo') editmylist({ index: li.id, event });
+});
 
-//   // Lodash, now imported by this script
-//   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+window.addEventListener('load', () => { getmylist(); });
 
-//   return element;
-// }
+// const mylist = [];
 
-// document.body.appendChild(component());
+// const getmylist = () => {
+//   const listGroup = document.querySelector('.todo-group');
+//   mylist.map((item) => {
+//     const listElement = document.createElement('li');
+//     listElement.classList = 'todo-list todo-item';
+//     listElement.id = `${item.index}`;
+//     listElement.innerHTML = `
+//         <button type="button" class=${
+//   item.completed === true ? 'checked-button' : 'unchecked-button'
+// }>
+//         <i class="fa-solid fa-check"></i></button>
+//         <input type="text" class=${
+//   item.completed === true ? 'decoration' : 'undecoration'
+// }  value="${item.description}">
+//         <span class="todo-item-more"><i class="fa-solid fa-ellipsis-vertical"></i></span>
+//     `;
+//     return listGroup.appendChild(listElement);
+//   });
+// };
+// window.addEventListener('load', getmylist);
