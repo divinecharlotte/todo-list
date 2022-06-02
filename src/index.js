@@ -1,8 +1,10 @@
-// import _ from 'lodash';
+import _ from 'lodash';// eslint-disable-line
 import './style.css';
+
 import {
   getmylist, addmylist, editmylist, deletemylist,
 } from './functinalities.js';
+import { changeTodoStatus, removeCompletedTodos } from './todoStatus.js';
 
 const listGroup = document.querySelector('.todo-group');
 const newTask = document.querySelector('.todo-add').querySelector('input');
@@ -14,6 +16,8 @@ listGroup.addEventListener('click', (event) => {
   const clickedItem = event.target.classList[event.target.classList.length - 1];
   const li = event.target.parentElement;
   if (clickedItem === 'delete-icon') deletemylist(li.id);
+  if (clickedItem === 'checked-icon') changeTodoStatus({ index: li.id, status: false });
+  if (clickedItem === 'unchecked-icon') changeTodoStatus({ index: li.id, status: true });
 });
 
 listGroup.addEventListener('keypress', (event) => {
@@ -22,27 +26,7 @@ listGroup.addEventListener('keypress', (event) => {
   if (pressedItem === 'edit-todo') editmylist({ index: li.id, event });
 });
 
+const clearCompleted = document.querySelector('.clear-todo');
+clearCompleted.addEventListener('click', removeCompletedTodos);
+
 window.addEventListener('load', () => { getmylist(); });
-
-// const mylist = [];
-
-// const getmylist = () => {
-//   const listGroup = document.querySelector('.todo-group');
-//   mylist.map((item) => {
-//     const listElement = document.createElement('li');
-//     listElement.classList = 'todo-list todo-item';
-//     listElement.id = `${item.index}`;
-//     listElement.innerHTML = `
-//         <button type="button" class=${
-//   item.completed === true ? 'checked-button' : 'unchecked-button'
-// }>
-//         <i class="fa-solid fa-check"></i></button>
-//         <input type="text" class=${
-//   item.completed === true ? 'decoration' : 'undecoration'
-// }  value="${item.description}">
-//         <span class="todo-item-more"><i class="fa-solid fa-ellipsis-vertical"></i></span>
-//     `;
-//     return listGroup.appendChild(listElement);
-//   });
-// };
-// window.addEventListener('load', getmylist);
