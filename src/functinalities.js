@@ -16,6 +16,10 @@ const getmylist = () => {
   listGroup.innerHTML = mylistElement;
   return listGroup;
 };
+const updateUI = (data) => {
+  mylist = data;
+  getmylist();
+};
 
 const addmylist = (event) => {
   if (newTask.value === '') return;
@@ -35,7 +39,7 @@ const addmylist = (event) => {
 const editmylist = ({ index, event }) => {
   if (event.target.value === '') return;
   if (event.key === 'Enter') {
-    mylist[index - 1].description = event.target.value;
+    mylist[index].description = event.target.value;
     localStorage.setItem('mylist', JSON.stringify(mylist));
   }
 };
@@ -53,5 +57,5 @@ const deletemylist = (targetIndex) => {
 };
 
 export {
-  getmylist, addmylist, editmylist, deletemylist,
+  getmylist, addmylist, editmylist, deletemylist, mylist, updateUI,
 };
