@@ -2,6 +2,9 @@
 
 > This project is about building a list of To Do tasks. Where you can save your daily activities and help in daily evaluation.
 
+## Live demo 
+you van see the poject [live]( https://divinecharlotte.github.io/todo-list/)
+
 ## Built With
 
 -Lighthouse (An open-source, automated tool for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO and more).
