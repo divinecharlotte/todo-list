@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/divinecharlotte/todo-list/issues"
   },
-  "homepage": "https://github.com/divinecharlotte/todo-list#readme",
+  "homepage": "https://divinecharlotte.github.io/todo-list/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
@@ -35,6 +38,7 @@
     "webpack-dev-server": "^4.9.1"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21"
   }
 }
