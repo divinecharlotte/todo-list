@@ -1,3 +1,0 @@
-const getmylist = () => {
-    return null;
-}
