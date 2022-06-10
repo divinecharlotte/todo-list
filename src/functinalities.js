@@ -1,27 +1,15 @@
+import { getmylist } from './ui.js';
+
 let mylist = JSON.parse(localStorage.getItem('mylist')) || [];// eslint-disable-line
 
-const listGroup = document.querySelector('.todo-group');
-const newTask = document.querySelector('.todo-add').querySelector('input');
-const getmylist = () => {
-  const mylistElement = mylist.map((item) => `
-        <li class="todo-list todo-item" id=${item.index}>
-          ${item.completed === true ? `
-            <i class="fa-solid fa-check checked-icon"></i>`
-    : '<i class="fa-solid fa-square unchecked-icon"></i>'}
-          <input type="text" class=${item.completed === true ? 'decoration edit-todo' : ' edit-todo'}  value="${item.description}">
-          <span class="edit-focus-element"></span>
-          <i class="fa-solid fa-trash-can delete-icon"></i>
-          <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
-        </li>`).join('');
-  listGroup.innerHTML = mylistElement;
-  return listGroup;
-};
 const updateUI = (data) => {
   mylist = data;
   getmylist();
 };
 
 const addmylist = (event) => {
+  const taskGroup = document.querySelector('.todo-add');
+  const newTask = taskGroup.querySelector('input')
   if (newTask.value === '') return;
   if (event.key === 'Enter' || event === 'clicked') {
     const todoElement = {
@@ -57,5 +45,5 @@ const deletemylist = (targetIndex) => {
 };
 
 export {
-  getmylist, addmylist, editmylist, deletemylist, mylist, updateUI,
+  addmylist, editmylist, deletemylist, mylist, updateUI,
 };

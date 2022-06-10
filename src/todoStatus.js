@@ -1,4 +1,5 @@
-import { mylist, getmylist, updateUI } from './functinalities.js';
+import { getmylist } from './ui.js';
+import { mylist, updateUI } from './functinalities.js';
 
 const changeTodoStatus = ({ index, status }) => {
   mylist[index - 1].completed = status;
