@@ -4,6 +4,7 @@
 
 import { addmylist } from '../src/functinalities';
 
+jest.mock('../src/ui');
 
 describe('Add and remove testing', () => {
     test('Add testing', () => {
@@ -14,11 +15,14 @@ describe('Add and remove testing', () => {
             '<i class="fa-solid fa-arrow-left-long"></i>' +
             '</div>';
         
-            
         const mylist = JSON.parse(localStorage.getItem('mylist')) || [];
-        console.log("Before:",mylist);
+        
         // Act
         addmylist('clicked');
-        console.log('After Click:',JSON.parse(localStorage.getItem('mylist')));
+        const newList = JSON.parse(localStorage.getItem('mylist'));
+
+        // Assert
+        expect(newList.length).toBe(mylist.length + 1);
+        expect(newList[0].description).toBe("new task");
     });
 })
