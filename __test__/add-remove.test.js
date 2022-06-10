@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { addmylist } from '../src/functinalities';
+import { addmylist, deletemylist, mylist } from '../src/functinalities';
 
 jest.mock('../src/ui');
 
@@ -16,13 +16,27 @@ describe('Add and remove testing', () => {
             '</div>';
         
         const mylist = JSON.parse(localStorage.getItem('mylist')) || [];
-        
+
         // Act
         addmylist('clicked');
         const newList = JSON.parse(localStorage.getItem('mylist'));
+        const newListLength = newList.length;
 
         // Assert
-        expect(newList.length).toBe(mylist.length + 1);
-        expect(newList[0].description).toBe("new task");
+        expect(newListLength).toBe(mylist.length + 1);
+        expect(newList[newListLength-1].description).toBe("new task");
     });
-})
+
+    test("Removing item", () => {
+        // Arrange
+        const mylist = JSON.parse(localStorage.getItem('mylist'));
+        
+        // Act
+        deletemylist(1);
+        const newList = JSON.parse(localStorage.getItem('mylist'));
+
+        // Assert
+        expect(newList.length).toBe(mylist.length - 1); 
+    });
+});
+
