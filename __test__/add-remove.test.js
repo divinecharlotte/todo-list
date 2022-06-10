@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-
+/* eslint-disable */
 import { addmylist, deletemylist, mylist } from '../src/functinalities';
 
 jest.mock('../src/ui');
