@@ -1,4 +1,4 @@
-import _ from 'lodash';// eslint-disable-line
+// eslint-disable-line
 import './style.css';
 
 import {getmylist} from './ui.js';
