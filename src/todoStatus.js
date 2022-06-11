@@ -9,7 +9,7 @@ const changeTodoStatus = ({ index, status }) => {
 };
 const removeCompletedTodos = () => {
   let mylist = ls();
-  const uncompletedTodos = mylist.filter((element) => element.completed !== true);
+  const uncompletedTodos = mylist.filter(({ completed }) => completed !== true);
   const newTodos = uncompletedTodos.map((element, index) => {
     element.index = index + 1;
     return element;
