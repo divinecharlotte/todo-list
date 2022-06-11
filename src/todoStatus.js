@@ -1,18 +1,21 @@
-import { mylist, getmylist, updateUI } from './functinalities.js';
+import { getmylist } from './ui.js';
+import { ls, setList } from './localstorage.js';
 
 const changeTodoStatus = ({ index, status }) => {
+  const mylist = ls();
   mylist[index - 1].completed = status;
-  localStorage.setItem('mylist', JSON.stringify(mylist));
+  setList(mylist);
   getmylist();
 };
 const removeCompletedTodos = () => {
-  const uncompletedTodos = mylist.filter((element) => element.completed !== true);
+  const mylist = ls();
+  const uncompletedTodos = mylist.filter(({ completed }) => completed !== true);
   const newTodos = uncompletedTodos.map((element, index) => {
     element.index = index + 1;
     return element;
   });
-  localStorage.setItem('mylist', JSON.stringify(newTodos));
-  updateUI(newTodos);
+  setList(newTodos);
+  getmylist();
 };
 
 export { changeTodoStatus, removeCompletedTodos };
