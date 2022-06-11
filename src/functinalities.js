@@ -1,7 +1,8 @@
 import { getmylist } from './ui.js';
-import {mylist, setList} from './localstorage.js';
+import {ls, setList} from './localstorage.js';
 
 const addmylist = (event) => {
+  let mylist = ls();
   const taskGroup = document.querySelector('.todo-add');
   const newTask = taskGroup.querySelector('input')
   if (newTask.value === '') return;
@@ -12,13 +13,14 @@ const addmylist = (event) => {
       index: mylist.length + 1,
     };
     newTask.value = '';
-    const newList = [...mylist, todoElement];
-    setList(newList);
+    mylist.push(todoElement);
+    setList(mylist);
     getmylist();
   }
 };
 
 const editmylist = ({ index, event }) => {
+  let mylist = ls();
   if (event.target.value === '') return;
   if (event.key === 'Enter') {
     mylist[index - 1].description = event.target.value;
@@ -27,12 +29,12 @@ const editmylist = ({ index, event }) => {
 };
 
 const deletemylist = (targetIndex) => {
-  const filterList = mylist.filter((item) => +item.index !== +targetIndex);
-  const newmylist = filterList.map((item, index) => ({
-    description: item.description,
-    completed: item.completed,
-    index: index + 1,
-  }));
+  let mylist = ls();
+  const filterList = mylist.filter(({ index }) => index !== parseInt(targetIndex) );
+  const newmylist = filterList.map((item, i) => {
+    item.index = i+1;
+    return item;
+  });
   setList(newmylist);
   getmylist();
 };

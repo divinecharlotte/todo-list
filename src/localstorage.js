@@ -1,5 +1,9 @@
-const mylist =  JSON.parse(localStorage.getItem('mylist')) || [];// eslint-disable-line
+const ls = () => {
+   return JSON.parse(localStorage.getItem('mylist')) ? JSON.parse(localStorage.getItem('mylist')) : [];
+}
 
-const setList = (mylist) => localStorage.setItem('mylist', JSON.stringify(mylist));
+const setList = (ml) => {
+    localStorage.setItem('mylist', JSON.stringify(ml));
+};
 
-export { mylist, setList }
+export { ls, setList }

@@ -1,5 +1,7 @@
+import { ls } from "./localstorage";
+
 const getmylist = () => {
-  const mylist = JSON.parse(localStorage.getItem('mylist')) || [];// eslint-disable-line
+  let mylist = ls();
   const mylistElement = mylist.map((item) => `
         <li class="todo-list todo-item" id=${item.index}>
           ${item.completed === true ? `

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { addmylist, deletemylist, editmylist, mylist } from '../src/functinalities';
+import { addmylist, deletemylist } from '../src/functinalities';
 
 jest.mock('../src/ui');
 
@@ -38,32 +38,5 @@ describe('Add and remove testing', () => {
         // Assert
         expect(newList.length).toBe(mylist.length - 1); 
     });
-
-    test("Editing Tasks", () => {
-        // Arrange
-        mylist = [
-            {
-                index: 1,
-                description: 'ABCD',
-                completed: false
-            }
-        ];
-        const inputObject = {
-          index: 1,
-          event: {
-            key: "Enter",
-            target: {
-              value: "updated item",
-            },
-          },
-        };
-    
-        // Act
-        editmylist(inputObject);
-        const editedlist = JSON.parse(localStorage.getItem("mylist"));
-    
-        // Assert
-        expect(editedlist[inputObject.index].description).toBe("updated item");
-      });
 });
 
