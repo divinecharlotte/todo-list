@@ -1,11 +1,5 @@
 import { getmylist } from './ui.js';
-
-let mylist = JSON.parse(localStorage.getItem('mylist')) || [];// eslint-disable-line
-
-const updateUI = (data) => {
-  mylist = data;
-  getmylist();
-};
+import {mylist, setList} from './localstorage.js';
 
 const addmylist = (event) => {
   const taskGroup = document.querySelector('.todo-add');
@@ -18,8 +12,8 @@ const addmylist = (event) => {
       index: mylist.length + 1,
     };
     newTask.value = '';
-    mylist = [...mylist, todoElement];
-    localStorage.setItem('mylist', JSON.stringify(mylist));
+    const newList = [...mylist, todoElement];
+    setList(newList);
     getmylist();
   }
 };
@@ -27,8 +21,8 @@ const addmylist = (event) => {
 const editmylist = ({ index, event }) => {
   if (event.target.value === '') return;
   if (event.key === 'Enter') {
-    mylist[index].description = event.target.value;
-    localStorage.setItem('mylist', JSON.stringify(mylist));
+    mylist[index - 1].description = event.target.value;
+    setList(mylist);
   }
 };
 
@@ -39,11 +33,10 @@ const deletemylist = (targetIndex) => {
     completed: item.completed,
     index: index + 1,
   }));
-  localStorage.setItem('mylist', JSON.stringify(newmylist));
-  mylist = newmylist;
+  setList(newmylist);
   getmylist();
 };
 
 export {
-  addmylist, editmylist, deletemylist, mylist, updateUI,
+  addmylist, editmylist,  deletemylist
 };

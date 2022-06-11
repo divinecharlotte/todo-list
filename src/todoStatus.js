@@ -1,9 +1,9 @@
 import { getmylist } from './ui.js';
-import { mylist, updateUI } from './functinalities.js';
+import {mylist, setList} from './localstorage.js';
 
 const changeTodoStatus = ({ index, status }) => {
   mylist[index - 1].completed = status;
-  localStorage.setItem('mylist', JSON.stringify(mylist));
+  setList(mylist);
   getmylist();
 };
 const removeCompletedTodos = () => {
@@ -12,8 +12,8 @@ const removeCompletedTodos = () => {
     element.index = index + 1;
     return element;
   });
-  localStorage.setItem('mylist', JSON.stringify(newTodos));
-  updateUI(newTodos);
+  setList(newTodos);
+  getmylist();
 };
 
 export { changeTodoStatus, removeCompletedTodos };
