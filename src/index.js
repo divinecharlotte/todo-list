@@ -1,7 +1,7 @@
 // eslint-disable-line
 import './style.css';
 
-import {getmylist} from './ui.js';
+import { getmylist } from './ui.js';
 
 import {
   addmylist, editmylist, deletemylist,
