@@ -1,15 +1,21 @@
 # todo-list
 
-> This project is about building a list of To Do tasks. Where you can save your daily activities and help in daily evaluation.
+> The todo list lists everything that you have to do, with the most important tasks at the top of the list, and the least important tasks at the bottom using a corresponding index of each task. The project is build with HTML,CSS and Javascript.
+
+![do](https://user-images.githubusercontent.com/60146030/210273075-3fa40f9f-b886-4940-8d6c-5938c8bc1897.PNG)
 
 ## Live demo 
-you van see the poject [live]( https://divinecharlotte.github.io/todo-list/)
+[Live Demo]( https://divinecharlotte.github.io/todo-list/)
 
 ## Built With
 
--Lighthouse (An open-source, automated tool for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO and more).
--Webhint (A customizable linting tool that helps you improve your site's accessibility, speed, cross-browser compatibility, and more by checking your code for best practices and common errors).
--Stylelint (A mighty, modern linter that helps you avoid errors and enforce conventions in your styles).
+-HTML
+
+-CSS3
+
+-Js
+
+-Technologies used: webpack, Git, Github
 
 ### Prerequisites
 
@@ -18,10 +24,8 @@ you van see the poject [live]( https://divinecharlotte.github.io/todo-list/)
 ### Install
 
 #### Cloning the project
-
-
-
-git clone [this repo](git@github.com:divinecharlotte/todo-list.git) 
+ ```bash
+git clone https://github.com/divinecharlotte/To-Do-list.git```
 
 ## Getting packages and debuging with Stylelint
 
