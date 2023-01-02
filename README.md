@@ -65,7 +65,7 @@ npm install
 👤 **Divine Charlotte**
 
 - GitHub: [@Divine](https://github.com/divinecharlotte)
-- LinkedIn: [Divine Charlotte](https://www.linkedin.com/in/safar-ali999/)
+- LinkedIn: [Divine Charlotte](https://www.linkedin.com/in/charlotte-divine-dusenge/)
 
 ## 🤝 Contributing
 
