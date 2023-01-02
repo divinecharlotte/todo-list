@@ -25,28 +25,42 @@
 
 #### Cloning the project
  ```bash
-git clone https://github.com/divinecharlotte/To-Do-list.git```
+git clone https://github.com/divinecharlotte/To-Do-list.git  
+```
 
-## Getting packages and debuging with Stylelint
+### Prerequisites
 
-npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+- node
+- npm
 
-##### For validation detection using Stylelint Run
+### Install
 
-npx stylelint "\*_/_.{css,scss}"
 
-##### from parent source directory
+  
+Install webpack with npm :
+```bash
+npm install --save-dev webpack
+```
 
-## Getting packages and debuging with Webhint
+### Usage
 
-npm init -y
-npm install --save-dev hint@6.x
+- To get the configuration of the app: Run 
+```bash
+npm install
+```
 
-##### For validation detection using Webhint Run
+### Run tests
 
-npx hint .
+- To update changes : Run 
+                           ```bash 
+                            npm run build
+                           ```
+- To launch the app locally: Run 
+                            ```bash 
+                            npm start
+                            ```
 
-## Author
+## Authors
 
 👤 **Divine Charlotte**
 
@@ -65,6 +79,6 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
--This project was inspired by Microverse](https://www.microverse.org)
+-This project was inspired by [Microverse](https://www.microverse.org)
 
 
