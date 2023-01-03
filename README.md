@@ -9,13 +9,13 @@
 
 ## Built With
 
--HTML
+- HTML
 
--CSS3
+- CSS3
 
--Js
+- Js
 
--Technologies used: webpack, Git, Github
+- Technologies used: webpack, Git, Github
 
 ### Prerequisites
 
