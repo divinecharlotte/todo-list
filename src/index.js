@@ -1,8 +1,10 @@
-import _ from 'lodash';// eslint-disable-line
+// eslint-disable-line
 import './style.css';
 
+import { getmylist } from './ui.js';
+
 import {
-  getmylist, addmylist, editmylist, deletemylist,
+  addmylist, editmylist, deletemylist,
 } from './functinalities.js';
 import { changeTodoStatus, removeCompletedTodos } from './todoStatus.js';
 
